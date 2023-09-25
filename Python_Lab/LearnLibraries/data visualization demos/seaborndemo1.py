@@ -17,6 +17,7 @@ import seaborn as sns
 # Load the data
 
 tips = sns.load_dataset("tips")
+print(tips.shape)
 #x=tips["total_bill"]
 # Create violinplot
 
@@ -24,11 +25,13 @@ sns.violinplot(x = "total_bill", data=tips)
 # Show the plot
 plt.show()
 
-sns.countplot(x="sex",data=tips)
+sns.countplot(x="sex",data=tips)  # it's Bar chart
+sns.countplot(x="time",hue="sex",data=tips)  # it's Bar chart
 
-sns.boxplot(x="day",y="total_bill",data=tips)
+sns.boxplot(x="day",y="total_bill",data=tips) # to show outliers
 
-sns.distplot(tips["total_bill"],kde=False,bins=5,color="darkgreen")
+sns.distplot(tips["total_bill"],kde=True,bins=10,color="darkgreen")
+sns.distplot(tips["tip"],kde=True,bins=5,color="darkgreen")
 
 sns.set(style="darkgrid")
 sns.histplot(x="total_bill",data=tips,bins=5)

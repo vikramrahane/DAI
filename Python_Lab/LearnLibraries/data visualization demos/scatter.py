@@ -12,6 +12,7 @@ plt.scatter(enrollment,students,label="This is scatter chart",color="green",mark
 plt.xlabel('enrollment')
 plt.ylabel('Students')
 plt.legend()
+plt.grid()
 plt.title('This my first in matplotlib graph\nThis is on next line')
 plt.show()
 
