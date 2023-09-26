@@ -16,25 +16,52 @@ m13.columns=m11.columns
 moviedata=pd.concat([m11,m12,m13])
 moviedata.info()
 
-def checkgener(s):
+### 2. find all masala movie - (action ,romance,comedy,thriller)
+ # Function to check all['Action','Romance','Comedy','Thriller'] genres are present or not
+def checkgener(s,l): 
     lst=s.split('|')
-    if len(lst)==4:
-        l=['Action','Romance','Comedy','Thriller']
-        s=np.sum(list(map(lambda x:1 if x in lst else 0,l)))
+    if len(lst)>=4:
+        s=np.sum(list(map(lambda x:1 if x in lst else 0,l)))        
         if s==4:
             return True
         else:
-            False
+            return False
     else: 
         return False
+    
+l=['Action','Romance','Comedy','Thriller']
+df1=moviedata[moviedata['genres'].apply(checkgener,moviedata['genres'],l)]
+df1
 
-#df1=moviedata[moviedata.apply(lambda x: checkgener(x['genres']),axis=1)]
-df1=moviedata[moviedata['genres'].apply(checkgener)
-df1.shape
-print(df1.head)
+### 3. plot a pie chart to represent genre and frequency of movie count
+genre_count=moviedata['genres'].str.split('|').explode().value_counts()
+print(genre_count)
+myexplode=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.3]
+plt.pie(genre_count,labels=genre_count.index,startangle=90,counterclock=False,radius=4,rotatelabels=270,explode=myexplode)
 
+### 4. average rating for each movie and merge 2 frames
 g=r11.groupby(by="movieId")
 g1=g['rating'].mean()
 print(g1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
