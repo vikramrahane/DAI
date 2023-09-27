@@ -1,0 +1,18 @@
+<table border=2 cellspacing=0>
+    <tr>
+        <th>ID</th>
+        <th>NAme</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    {% for k in data%}
+     <tr>
+         <td>{{k[0]}}</td>
+         <td>{{k[1]}}</td>
+         <td>{{k[2]}}</td>
+         <td>{{k[3]}}</td>
+         <td><a href='delete/{{k[0]}}'>delete</a>/<a href='#'>edit</a></td>
+     </tr>
+     {% endfor %}
+</table>
+<a href="acceptproduct">Add product</a>
