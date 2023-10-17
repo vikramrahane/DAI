@@ -57,9 +57,10 @@ public class Ass5 {
 					for(i=0;i<AccountHolder.cnt;i++)
 					{
 						System.out.println((i+1)+" Account Holder Details: ");
-						System.out.println("Account No: "+cust[i].get_accno());
-						System.out.println("Name: "+cust[i].get_name());
-						System.out.println("Balance: "+cust[i].get_bal());
+						System.out.println(cust[i]);//toString method call
+						//System.out.println("Account No: "+cust[i].get_accno());
+						//System.out.println("Name: "+cust[i].get_name());
+						//System.out.println("Balance: "+cust[i].get_bal());
 						System.out.println();
 					}
 					break;

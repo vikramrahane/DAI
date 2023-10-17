@@ -1,10 +1,10 @@
-
 public class AccountHolder {
 	
 	public static int cnt;
 	int accno;
 	String name;
 	double bal;
+	
 	// Constructors
 	public AccountHolder()
 	{
@@ -79,5 +79,10 @@ public class AccountHolder {
 		{
 			System.out.println("Please enter valid amount");
 		}
+	}
+	public String toString()
+	{
+		return "Name: "+this.name+" Acc No: "+this.accno+" Balance: "+this.bal;
+		
 	}
 }
