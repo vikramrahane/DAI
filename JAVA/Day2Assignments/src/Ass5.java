@@ -24,8 +24,8 @@ public class Ass5 {
 			cust[i]=new AccountHolder();
 		}
 		AccountHolder.cnt=0;
-		int ch=0;
-		while(ch!=5)
+		int ch;
+		do
 		{
 			System.out.println("1. Add record for account holder\n"
 					+ "2. Display details of all account holders.\n"
@@ -110,7 +110,7 @@ public class Ass5 {
 				default:
 					System.out.println("Wrong Choice!");
 			}
-		}
+		}while(ch!=5);
 	}
 
 }
