@@ -44,7 +44,6 @@ public class UtilityList {
 	}
 	public void printList()
 	{
-		System.out.println("Student Name-->Percentage");
 		for(Student stud:studlist)
 		{
 			stud.disp();

@@ -1,4 +1,3 @@
-package com.DAI;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,10 +7,6 @@ import java.util.Set;
 public class UtilityList {
 	private List<Student> studlist;
 	Scanner sc = new Scanner(System.in);
-	public List<Student> getStudList()
-	{
-		return studlist;
-	}
 	public void createList()
 	{
 		studlist=new LinkedList<Student>();
@@ -44,7 +39,6 @@ public class UtilityList {
 	}
 	public void printList()
 	{
-		System.out.println("Student Name-->Percentage");
 		for(Student stud:studlist)
 		{
 			stud.disp();
