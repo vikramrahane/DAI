@@ -1,0 +1,77 @@
+package All;
+
+import java.awt.*;
+
+class MovingCircle extends Frame implements Runnable 
+{
+	Thread t1,t2;
+
+	private int circleX = 0; // Initial x-coordinate of the circle
+    private int circleY = 300; // Initial y-coordinate of the circle
+    private int circleDiameter = 100; // Diameter of the circle
+    private int direction = 1; // 1 for moving right, -1 for moving left
+	
+	public MovingCircle() 
+	{
+		setTitle("Moving Circle");
+		t1 =new Thread(this,"movement");
+		t1.start();
+	}
+	
+	public void paint(Graphics g) {
+        g.setColor(Color.yellow);
+        g.fillOval(circleX, circleY, circleDiameter, circleDiameter);
+    }
+	@Override
+	public void run() {
+		boolean flag=false;
+		while(true) {
+			if(cicleX==this.getWidth())
+				flag=true;
+			else if(cirlcleX==0)
+				flag=false;
+			
+			if(flag==false)
+			{
+				circleX++;
+				try {
+					Thread.sleep(1);
+					
+				}catch(InterruptedException e) {
+					
+				}
+			}
+			else if(flag==true) {
+				 circleX--;
+				 try {
+						Thread.sleep(1);
+						
+					}catch(InterruptedException e) {
+						e.printStackTrace();
+					}
+				 
+			}
+			 repaint();
+		}
+		
+			}
+	
+			
+		}
+		
+	
+
+
+
+
+public class AssignmentTester {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		MovingCircle fr =new MovingCircle();
+		fr.setSize(600,600);
+		fr.setVisible(true);
+
+	}
+
+}

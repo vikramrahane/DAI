@@ -1,0 +1,24 @@
+package All;
+
+class MovingCircle extends Frame implements Runnable 
+{
+	Thread t1,t2;
+	int x1,x2;
+	
+	public MovingCircle() 
+	{
+		x1 = 0;
+		
+	}
+}
+
+
+
+public class AssignmentTester {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

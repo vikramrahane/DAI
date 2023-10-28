@@ -1,0 +1,71 @@
+package All;
+
+
+class Account 
+{
+	private int Balance;
+	
+	public Account(){
+		Balance = 10000;
+	}
+	
+	public void Deposit(int amount) 
+	{
+		//code here
+		synchronized (this) 
+		{
+			System.out.println("Balance before deposit"+Balance);
+			Balance = Balance+amount;
+			System.out.println("Balance after deposit"+Balance);
+		}
+		//code here
+	}
+	public void withdraw(int amount) 
+	{
+		//code here
+		synchronized (this) 
+		{
+		System.out.println("Balance before deposit"+Balance);
+		Balance = Balance+amount;
+		System.out.println("Balance after deposit"+Balance);
+		}
+		//code here
+	}
+}
+
+class Accountholder extends Thread
+{
+	private String name,tot;
+	private Account account;
+	private int amount;
+	public Accountholder(String n,Account acc, String tran,int amt) 
+	{
+		name=n;
+		account=acc;
+		tot=tran;
+		amount=amt;
+	}
+	
+	public void run() {
+		if (tot.equals("deposit")) 
+		{
+			account.Deposit(amount);
+		}
+		else if(tot.equals("withdraw")) 
+		{
+			account.withdraw(amount);
+		}
+	}
+	
+}
+
+public class Tester1 {
+	public static void main(String []args) 
+	{
+		Account account = new Account();
+		Accountholder user1 = new Accountholder("abc",account,"deposit",1000);
+		Accountholder user2= new Accountholder("def", account, "withdraw", 500);
+		user1.start();
+		user2.start();
+	}
+}
