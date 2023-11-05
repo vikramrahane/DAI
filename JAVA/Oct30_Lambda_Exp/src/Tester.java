@@ -32,6 +32,7 @@ public class Tester {
 			list.stream().map((t)->t*2).forEach((t)-> System.out.print(t+"  "));
 			System.out.println();
 			list.stream().filter((t)->(t%2==1)).forEach((t)-> System.out.print(t+"  "));
+			//stream can be use once, so it is used in one line with lambda function
 	}
 
 } 
